@@ -9,23 +9,28 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
 import utilsx.utilsx.UtilsX;
 
-public class BedrockHandler implements Listener {
-    public BedrockHandler(UtilsX plugin) {
+public class CommandBlockHandler implements Listener {
+    public CommandBlockHandler(UtilsX plugin) {
         Bukkit.getPluginManager().registerEvents(this, plugin);
     }
-
     @EventHandler
-    public void onBedrockPlace(BlockPlaceEvent event) {
+    public void onCommandBlockPlace(BlockPlaceEvent event) {
         Block block = event.getBlock();
-        if (block.getType() != Material.BEDROCK) {
+        if (block.getType() != Material.COMMAND_BLOCK) {
             return;
         }
-        if (event.getPlayer().hasPermission("utilsx.allow.bedrock")) {
+        if (block.getType() != Material.REPEATING_COMMAND_BLOCK) {
+            return;
+        }
+        if (block.getType() != Material.CHAIN_COMMAND_BLOCK) {
+            return;
+        }
+        if (event.getPlayer().hasPermission("utilsx.allow.commandblock")) {
             return;
         }
         Player player = event.getPlayer();
+        Bukkit.getLogger().info(player.getName() + " Tried to place a command block");
         player.sendMessage("[!] You cannot place an internally prohibited block.");
-        Bukkit.getLogger().info(player.getName() + " Tried to place a bedrock block");
         event.setCancelled(true);
     }
 }
