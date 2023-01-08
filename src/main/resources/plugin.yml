@@ -1,0 +1,5 @@
+name: UtilsX
+version: '${project.version}'
+main: utilsx.utilsx.UtilsX
+api-version: 1.16
+authors: [ Luis64_gamer ]
