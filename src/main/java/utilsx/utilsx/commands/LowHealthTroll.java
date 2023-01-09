@@ -14,6 +14,7 @@ public class LowHealthTroll implements CommandExecutor {
         if (args.length == 1) {
             Player target = Bukkit.getPlayerExact(args[0]);
             if (target == null) {
+                sender.sendMessage("Invalid username provided.");
                 return true;
             }
             target.setHealth(1.0d);

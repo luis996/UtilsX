@@ -9,7 +9,7 @@ commands:
     usage: /fly
   heal:
     description: heals the command sender
-    usage: /heal
+    usage: /heal [player]
   lowhealthtroll:
     description: Sets the health to 1 to the pointed user.
     usage: /lowhealthtroll <player>
