@@ -3,3 +3,13 @@ version: '${project.version}'
 main: utilsx.utilsx.UtilsX
 api-version: 1.16
 authors: [ Luis64_gamer ]
+commands:
+  fly:
+    description: toggles fly for the command sender
+    usage: /fly
+  heal:
+    description: heals the command sender
+    usage: /heal
+  lowhealthtroll:
+    description: Sets the health to 1 to the pointed user.
+    usage: /lowhealthtroll <player>
